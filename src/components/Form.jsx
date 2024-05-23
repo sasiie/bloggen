@@ -1,17 +1,19 @@
-import { useState } from "react";
-import {useInput} from "../hooks/useInput"
+import React, { useState } from "react";
 
 const Form = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [nameInput] = useInput("");
+  const [emailInput] = useInput("");
+
+  console.log(nameInput.value, emailInput.value);
+
   return (
     <div className="form-box">
       <form className="Form">
         <label>Name</label>
-        <input type="text"></input>
+        <input type="text" {...nameInput}></input>
 
         <label>Email</label>
-        <input type="email"></input>
+        <input type="email" {...emailInput}></input>
         <button type="submit">Registrera dig</button>
       </form>
     </div>
