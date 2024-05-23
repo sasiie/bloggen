@@ -6,13 +6,13 @@ import HomePage from './pages/HomePage';
 import LogIn from './pages/LogIn';
 import PageLayout from './components/PageLayout';
 import Landningssida from './pages/Landningssida';
-import { ProductProvider } from './context/BlogContext';
+import { PostProvider } from './context/BlogContext';
 
 const App = () => {
   const { isLoggedIn } = useContext(UserContext);
 
   return (
-    <ProductProvider>
+    <PostProvider>
       <Router>
         <Header />
         {isLoggedIn ? (
@@ -25,7 +25,7 @@ const App = () => {
           <PageLayout>Please Log in</PageLayout>
         )}
       </Router>
-    </ProductProvider>
+    </PostProvider>
   );
 };
 

@@ -1,17 +1,17 @@
 import { createContext, useState } from "react";
 
-export const ProductContext = createContext();
+export const BlogContext = createContext();
 
-export const ProductProvider = (props) => {
-  const [products, setProducts] = useState([
-    { id: 1, name: "Product 1" },
-    { id: 2, name: "Product 2" },
-    { id: 3, name: "Product 3" },
+export const PostProvider = (props) => {
+  const [blogs, setBlogs] = useState([
+    { id: 1, name: "BlogPost 1" },
+    { id: 2, name: "BlogPost 2" },
+    { id: 3, name: "BlogPost 3" },
   ]);
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <BlogContext.Provider value={{ blogs }}>
       {props.children}
-    </ProductContext.Provider>
+    </BlogContext.Provider>
   );
 };
