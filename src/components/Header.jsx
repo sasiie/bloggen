@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar';
 
 
 const Header = () => {
-    const { userName } = useContext(UserContext);
+    const { userName,isLoggedIn, login, logout } = useContext(UserContext);
   
     return (
         <div className="container">
@@ -15,9 +15,15 @@ const Header = () => {
         <Link to="/Landningssida" className="link">Blogg sidan</Link>
         <SearchBar />
     </div>
-    <p className="userName">
     <Link to="/LogIn" className="link">Logga in</Link>
-{userName}</p>
+    {isLoggedIn ? (<>
+      <p className="userName">{userName}</p>
+      <button onClick={logout}> Log out</button>
+</> ): (
+ 
+  <button onClick={login}>Log in</button>
+)}
+    
 </nav>
         </div>
       );

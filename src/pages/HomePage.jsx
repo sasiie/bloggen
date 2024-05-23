@@ -4,33 +4,43 @@ import "../App.css";
 const Posts = () => {
   const [isComplete, setIsComplete] = useState(false);
   const [allTodos, setTodos] = useState([]);
-  const [newTitle, setNewTitle] = useState("");
-  const [newDescription, setNewDescription] = useState("");
   const [completedTodos, setCompletedTodos] = useState([]);
+  const [userInput, setUserInput] = useState({
+    title: "",
+    description: "",
+  });
 
   useEffect(() => {
-    const savedTodo = JSON.parse(localStorage.getItem('todolist'));
-    const savedCompletedTodo = JSON.parse(localStorage.getItem('completedTodos'));
+    const savedTodo = JSON.parse(localStorage.getItem("todolist"));
+    const savedCompletedTodo = JSON.parse(localStorage.getItem("completedTodos"));
 
     if (savedTodo) setTodos(savedTodo);
     if (savedCompletedTodo) setCompletedTodos(savedCompletedTodo);
   }, []);
 
-  const handleAddTodo = () => {
-    if (newTitle.trim() === "" || newDescription.trim() === "") return;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserInput((prevUserInput) => ({
+      ...prevUserInput,
+      [name]: value,
+    }));
+  };
 
-    const newTodoItem = { title: newTitle, description: newDescription };
+  const handleAddTodo = (event) => {
+    event.preventDefault();
+    if (userInput.title.trim() === "" || userInput.description.trim() === "") return;
+
+    const newTodoItem = { title: userInput.title, description: userInput.description };
     const updatedTodoArr = [...allTodos, newTodoItem];
     setTodos(updatedTodoArr);
-    localStorage.setItem('todolist', JSON.stringify(updatedTodoArr));
-    setNewTitle("");
-    setNewDescription("");
+    localStorage.setItem("todolist", JSON.stringify(updatedTodoArr));
+    setUserInput({ title: "", description: "" });
   };
 
   const handleDeleteTodo = (index) => {
     const reducedTodo = allTodos.filter((_, i) => i !== index);
     setTodos(reducedTodo);
-    localStorage.setItem('todolist', JSON.stringify(reducedTodo));
+    localStorage.setItem("todolist", JSON.stringify(reducedTodo));
   };
 
   const handleComplete = (index) => {
@@ -39,82 +49,94 @@ const Posts = () => {
     const updatedCompletedArr = [...completedTodos, filteredItem];
     setCompletedTodos(updatedCompletedArr);
     handleDeleteTodo(index);
-    localStorage.setItem('completedTodos', JSON.stringify(updatedCompletedArr));
+    localStorage.setItem("completedTodos", JSON.stringify(updatedCompletedArr));
   };
 
   const handleDeleteCompletedTodo = (index) => {
     const reducedTodo = completedTodos.filter((_, i) => i !== index);
     setCompletedTodos(reducedTodo);
-    localStorage.setItem('completedTodos', JSON.stringify(reducedTodo));
+    localStorage.setItem("completedTodos", JSON.stringify(reducedTodo));
   };
-
-  const TodoInput = () => (
-    <div className="Blogg-input">
-      <div className="Blogg-input-item">
-        <label> Title </label>
-        <input
-          type="text"
-          value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
-          placeholder="Title"
-        />
-      </div>
-      <div className="Blogg-input-item">
-        <label> Description </label>
-        <input
-          type="text"
-          className="Text"
-          value={newDescription}
-          onChange={(e) => setNewDescription(e.target.value)}
-          placeholder="Tell your story..."
-        />
-      </div>
-      <div className="Blogg-input-item">
-        <button type="button" onClick={handleAddTodo} className="primaryBtn">
-          Publish it
-        </button>
-      </div>
-    </div>
-  );
-
-  const TodoList = ({ items, onDelete, onComplete }) => (
-    <div className="Blogg-list">
-      {items.map((item, index) => (
-        <div className="Blogg-list-item" key={index}>
-          <div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </div>
-          <div className="Buttons">
-            <button className="Deleteit" onClick={() => onDelete(index)}>
-              Ta bort
-            </button>
-            {onComplete && (
-              <button className="complete" onClick={() => onComplete(index)}>
-                Färdig
-              </button>
-            )}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
 
   return (
     <div className="App">
       <div className="Blogg-wrapper">
-        <TodoInput />
-        {isComplete ? (
-          <TodoList items={completedTodos} onDelete={handleDeleteCompletedTodo} />
-        ) : (
-          <TodoList items={allTodos} onDelete={handleDeleteTodo} onComplete={handleComplete} />
-        )}
+        <form onSubmit={handleAddTodo} className="Blogg-input">
+          <div className="Blogg-input-item">
+            <label>Title</label>
+            <input
+              type="text"
+              name="title"
+              value={userInput.title}
+              onChange={handleChange}
+              placeholder="Title"
+              className="input-field"
+            />
+          </div>
+          <div className="Blogg-input-item">
+            <label>Description</label>
+            <input
+              type="text"
+              name="description"
+              value={userInput.description}
+              onChange={handleChange}
+              placeholder="Tell your story..."
+              className="input-field"
+            />
+          </div>
+          <div className="Blogg-input-item">
+            <button type="submit" className="primaryBtn">
+              Publish it
+            </button>
+          </div>
+        </form>
+        <div className="Blogg-list">
+          {!isComplete && (
+            <div>
+              {allTodos.map((item, index) => (
+                <div className="Blogg-list-item" key={index}>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                  <div className="Buttons">
+                    <button className="Deleteit" onClick={() => handleDeleteTodo(index)}>
+                      Ta bort
+                    </button>
+                    <button className="complete" onClick={() => handleComplete(index)}>
+                      Färdig
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          {isComplete && (
+            <div>
+              {completedTodos.map((item, index) => (
+                <div className="Blogg-list-item" key={index}>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <p>Completed on: {item.completedOn}</p>
+                  </div>
+                  <div className="Buttons">
+                    <button className="Deleteit" onClick={() => handleDeleteCompletedTodo(index)}>
+                      Ta bort
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
 export default Posts;
+
 
 
 

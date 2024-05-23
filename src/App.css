@@ -18,7 +18,7 @@
 
 /*Navbaren*/
 
-.title{
+.title {
   color: #ed8e8e;
 }
 nav {
@@ -41,7 +41,7 @@ nav {
 }
 
 .NavLinks a:hover {
-  color: #ffd700; 
+  color: #ffd700;
 }
 
 /*Headern*/
@@ -95,25 +95,24 @@ nav {
 
 /*Homepage*/
 
-
 h1 {
   margin: 0;
   display: flex;
   justify-content: center;
 }
 
-.Blogg-wrapper{
-background-color: azure;
-padding: 2%;
-width: fit-content;
-margin-left: auto;
-margin-right: auto;
-margin-top: 3%;
-max-height: 100vh;
-overflow-y: auto;
-box-shadow: 0px 5px 7px black;
+.Blogg-wrapper {
+  background-color: rgb(255, 255, 255);
+  padding: 2%;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  max-height: 100vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 7px black;
 }
-.Blogg-input{
+.Blogg-input {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,56 +122,57 @@ box-shadow: 0px 5px 7px black;
   margin-bottom: 25px;
 }
 
-.Blogg-input-item{
+.Blogg-input-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-right: 25px;
+  margin-top: 10px;
 }
 
-.Blogg-input-item label{
+.Blogg-input-item label {
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .Blogg-input-item input.Text {
-  width: 600px; 
-  height: 200px; 
-  font-size: 18px; 
-  padding: 10px; 
-  border:solid #7c7c7c;
+  width: 600px;
+  height: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: solid #7c7c7c;
   border-radius: 10px;
 }
 
-.Blogg-input-item input{
+.Blogg-input-item input {
   padding: 8px;
   border: solid #7c7c7c;
   border-radius: 10px;
   width: 200px;
 }
 
-.btn-area{
+.btn-area {
   margin-bottom: 15px;
 }
-.delete-btn{
+.delete-btn {
   background-color: rgb(237, 190, 132);
 }
-.primaryBtn{
-  background-color: rgb(255, 189, 109);
+.primaryBtn {
+  background-color: rgb(189, 189, 189);
   border: none;
   margin-top: 20px;
-  padding: 25px;
+  padding: 15px;
   width: auto;
   cursor: pointer;
   border-radius: 15px;
 
 }
-.primaryBtn:hover{
-  background-color: rgb(202, 159, 107);
+.primaryBtn:hover {
+  background-color: rgb(177, 161, 224);
   color: rgb(244, 238, 225);
   border-radius: 15px;
 }
-.secundaryBtn{
+.secundaryBtn {
   background-color: rgb(122, 122, 121);
   border: none;
   margin-top: 20px;
@@ -183,49 +183,46 @@ box-shadow: 0px 5px 7px black;
 
 }
 
-.active{
-  background-color: rgb(255, 189, 109);
-}
 
-.Posts{
+
+.Posts {
   display: flex;
   flex-direction: column;
 
 }
 
-.Blogg-list-item{
-  background-color: rgb(53, 42, 175);
+.Blogg-list-item {
+  background-color: rgb(241, 240, 240);
   display: flex;
-justify-content: space-between;
-padding: 25px;
-padding-bottom: 10px;
-padding-top: 10px;
-margin-bottom: 10px;
-border-radius: 2%;
+  justify-content: space-between;
+  padding: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
 
 }
 
-.Blogg-list-item h3{
+.Blogg-list-item h3 {
   font-size: 25px;
-  color: azure;
+  color: rgb(12, 17, 63);
   font-weight: bold;
   margin-top: 0px;
 }
 
-.Blogg-list-item p{
-font-size: 14px;
-color: antiquewhite;
-margin-top: 0px;
+.Blogg-list-item p {
+  font-size: 14px;
+  color: rgb(12, 17, 63);
+  margin-top: 0px;
 }
-.Buttons{
+.Buttons {
   justify-content: center;
   display: flex;
 }
 
-.NavLinks{
+.NavLinks {
   display: flex;
   justify-content: space-between;
-  padding: 5px;  
+  padding: 5px;
 }
 
 
