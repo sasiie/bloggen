@@ -1,0 +1,231 @@
+.blog-posts {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.blog-post {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.blog-post h3 {
+  margin-bottom: 5px;
+}
+
+.blog-post p {
+  margin-bottom: 10px;
+}
+
+/*Navbaren*/
+
+.title{
+  color: #ed8e8e;
+}
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.NavLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NavLinks a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.NavLinks a:hover {
+  color: #ffd700; 
+}
+
+/*Headern*/
+.nav {
+  display: flex; /* Set nav to flex container */
+  align-items: center; /* Align items vertically */
+  justify-content: center;
+  background-color: #ffffff; /* Set background color */
+  padding: 10px; /* Add padding */
+}
+
+.links-container {
+  display: flex; /* Set links-container to flex container */
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #3e3a3a; /* Set text color to white */
+  text-decoration: none; /* Remove underline */
+  margin-right: 20px; /* Add margin between links */
+}
+
+.link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.userName {
+  display: flex;
+  flex-direction: row;
+  color: #3e3a3a; /* Set text color */
+  margin-left: auto; /* Move the userName to the right */
+}
+
+.LogIn {
+  color: #3e3a3a; /* Set text color */
+  text-decoration: none; /* Remove underline */
+  margin-left: 20px; /* Add margin between links */
+}
+
+.LogIn:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+.SearchBar input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/*Homepage*/
+
+
+h1 {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.Blogg-wrapper{
+background-color: azure;
+padding: 2%;
+width: fit-content;
+margin-left: auto;
+margin-right: auto;
+margin-top: 3%;
+max-height: 100vh;
+overflow-y: auto;
+box-shadow: 0px 5px 7px black;
+}
+.Blogg-input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.Blogg-input-item{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 25px;
+}
+
+.Blogg-input-item label{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.Blogg-input-item input.Text {
+  width: 600px; 
+  height: 200px; 
+  font-size: 18px; 
+  padding: 10px; 
+  border:solid #7c7c7c;
+  border-radius: 10px;
+}
+
+.Blogg-input-item input{
+  padding: 8px;
+  border: solid #7c7c7c;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.btn-area{
+  margin-bottom: 15px;
+}
+.delete-btn{
+  background-color: rgb(237, 190, 132);
+}
+.primaryBtn{
+  background-color: rgb(255, 189, 109);
+  border: none;
+  margin-top: 20px;
+  padding: 25px;
+  width: auto;
+  cursor: pointer;
+  border-radius: 15px;
+
+}
+.primaryBtn:hover{
+  background-color: rgb(202, 159, 107);
+  color: rgb(244, 238, 225);
+  border-radius: 15px;
+}
+.secundaryBtn{
+  background-color: rgb(122, 122, 121);
+  border: none;
+  margin-top: 20px;
+  padding: 10px;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 15px;
+
+}
+
+.active{
+  background-color: rgb(255, 189, 109);
+}
+
+.Posts{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.Blogg-list-item{
+  background-color: rgb(53, 42, 175);
+  display: flex;
+justify-content: space-between;
+padding: 25px;
+padding-bottom: 10px;
+padding-top: 10px;
+margin-bottom: 10px;
+border-radius: 2%;
+
+}
+
+.Blogg-list-item h3{
+  font-size: 25px;
+  color: azure;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.Blogg-list-item p{
+font-size: 14px;
+color: antiquewhite;
+margin-top: 0px;
+}
+.Buttons{
+  justify-content: center;
+  display: flex;
+}
+
+.NavLinks{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;  
+}
+
+
