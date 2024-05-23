@@ -1,3 +1,7 @@
+import React,{ useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import PageLayout from "../components/PageLayout";
+import Form from "../components/Form";
 const blogPosts = [
     { id: 1, title: "First Post", author: "Jane Doe", text: "This is the first blog post by Jane Doe." },
     { id: 2, title: "Second Post", author: "Jane Doe", text: "This is the second blog post by Jane Doe." }
@@ -5,7 +9,10 @@ const blogPosts = [
 
 
   const Landningssida = () => {
+    const {userName } = useContext (UserContext);
     return (
+      <PageLayout title="Home" headline={`Attention pretend ${userName}!`}>
+       <Form />
       <div>
         <h2>Blog</h2>
         {blogPosts.map(post => (
@@ -16,7 +23,8 @@ const blogPosts = [
           </div>
         ))}
       </div>
+      </PageLayout>
     );
-  }
+  };
 
   export default Landningssida;
