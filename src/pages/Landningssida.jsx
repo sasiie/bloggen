@@ -9,9 +9,9 @@ const blogPosts = [
 
 
   const Landningssida = () => {
-    const {userName } = useContext (UserContext);
+    const {userName, setUserName } = useContext (UserContext);
     return (
-      <PageLayout title="Home" headline={`Välkommen till Saras Blogg ${userName}!`}>
+      <PageLayout title="Home" headline={`Välkommen in ${userName}!`}>
        <Form />
       <div>
         <h2>Blog</h2>
