@@ -19,8 +19,6 @@ const App = () => {
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/Landningssida" element={<Landningssida />} />
         </Routes>
-
-        <PageLayout>Please Log in</PageLayout>
       </BrowserRouter>
     </PostProvider>
   );
