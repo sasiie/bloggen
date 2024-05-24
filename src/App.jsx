@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { UserContext } from "./context/UserContext";
+import { UserContext, UserProvider } from "./context/UserContext";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import PageLayout from "./components/PageLayout";
 import Landningssida from "./pages/Landningssida";
 import { PostProvider } from "./context/BlogContext";
+
 
 const App = () => {
   const { isLoggedIn } = useContext(UserContext);
@@ -14,11 +15,15 @@ const App = () => {
     <PostProvider>
       <BrowserRouter>
         <Header />
-
+{isLoggedIn ? (
+  <>
         <Routes>
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/Landningssida" element={<Landningssida />} />
         </Routes>
+        </>
+): (           <PageLayout>Please log in</PageLayout>
+)}
       </BrowserRouter>
     </PostProvider>
   );
