@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import useInput from "../hooks/useInput";
 import { UserContext } from "../context/UserContext";
 
 const Form = () => {
   const { setUserName } = useContext(UserContext);
-  const [nameInput] = useInput("");
-  const [emailInput] = useInput("");
+  const [nameInput] = useInput();
+  const [emailInput] = useInput();
 
-  console.log(nameInput.value, emailInput.value);
   const handleSubmit = (e) => {
     e.preventDefault();
 

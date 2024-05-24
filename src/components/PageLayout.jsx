@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import {useEffect} from "react";
 
 const PageLayout = ({ title, headline, children }) => {
   useEffect(() => {
@@ -12,5 +12,4 @@ const PageLayout = ({ title, headline, children }) => {
     </div>
   );
 };
-
 export default PageLayout;
