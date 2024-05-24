@@ -8,8 +8,10 @@ export const Header = () => {
 
   return (
     <div className="container">
-      <nav className="nav">
-        <div className="links-container">
+<h1 className="Title-header"> Saras Blogg</h1>
+      <nav className= "links-container">
+        {isLoggedIn ? (
+          <>
           <Link to="/HomePage" className="link">
             Home
           </Link>
@@ -17,9 +19,7 @@ export const Header = () => {
             Blogg sidan
           </Link>
           <SearchBar />
-        </div>
-        {isLoggedIn ? (
-          <>
+      
             <p className="userName">{userName}</p>
             <button onClick={logout}> Log out</button>
           </>

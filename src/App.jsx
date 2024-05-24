@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import PageLayout from "./components/PageLayout";
 import Landningssida from "./pages/Landningssida";
 import { PostProvider } from "./context/BlogContext";
-
+import LoginComponent from "./components/LoginComponent";
 const App = () => {
   const { isLoggedIn } = useContext(UserContext);
 
@@ -14,17 +14,14 @@ const App = () => {
     <PostProvider>
       <BrowserRouter>
         <Header />
-        {isLoggedIn ? (
-          <>
-            <Routes>
-              <Route path="/HomePage" element={<HomePage />} />
-              <Route path="/LogIn" element={<LogIn />} />
-              <Route path="/Landningssida" element={<Landningssida />} />
-            </Routes>
-          </>
-        ) : (
-          <PageLayout>Please Log in</PageLayout>
-        )}
+
+        <Routes>
+          <Route path="/HomePage" element={<HomePage />} />
+          <Route path="/login" element={<LoginComponent />} />
+          <Route path="/Landningssida" element={<Landningssida />} />
+        </Routes>
+
+        <PageLayout>Please Log in</PageLayout>
       </BrowserRouter>
     </PostProvider>
   );

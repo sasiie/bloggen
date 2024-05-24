@@ -226,53 +226,210 @@ h1 {
 }
 
 /*Form */
-.form-box {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Basic styles for the login component */
+.main-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.form-box .Form {
+.form-container {
+  width: 400px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.form-container-inner {
+  text-align: center;
+}
+
+.title-box {
+  margin-top: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.form {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
 }
 
-.form-box .Form label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
 }
 
-.form-box .Form input {
-  margin-bottom: 15px;
-  padding: 10px;
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #555;
+  background-color: transparent;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 16px;
-}
-
-.form-box .Form input:focus {
-  border-color: #007bff;
+  border-radius: 8px;
   outline: none;
+  transition: border-color 0.3s;
 }
 
-.form-box .Form button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 3px;
-  background-color: #007bff;
-  color: white;
+.input:focus {
+  border-color: #4a90e2;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
   font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.form-box .Form button:hover {
-  background-color: #0056b3;
+.submit-button:hover {
+  background-color: #357ab7;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.register-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #4a90e2;
+}
+
+.register-link:hover {
+  text-decoration: underline;
 }
 
 
+/*registrering */
+/* Basic styles for the register component */
+.register-main-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.register-form-container {
+  width: 400px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.register-form-container-inner {
+  text-align: center;
+}
+
+.register-title-box {
+  margin-top: 16px;
+}
+
+.register-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.register-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.register-input {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #555;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.register-input:focus {
+  border-color: #4a90e2;
+}
+
+.register-error-message {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.register-submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.register-submit-button:hover {
+  background-color: #357ab7;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.register-submit-button.register-disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.register-text-center {
+  text-align: center;
+}
+
+.register-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #4a90e2;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
