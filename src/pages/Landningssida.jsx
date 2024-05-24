@@ -11,7 +11,7 @@ const blogPosts = [
   const Landningssida = () => {
     const {userName } = useContext (UserContext);
     return (
-      <PageLayout title="Home" headline={`Attention pretend ${userName}!`}>
+      <PageLayout title="Home" headline={`Välkommen till Saras Blogg ${userName}!`}>
        <Form />
       <div>
         <h2>Blog</h2>

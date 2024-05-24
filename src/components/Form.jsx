@@ -4,8 +4,8 @@ import { UserContext } from "../context/UserContext";
 
 const Form = () => {
   const { setUserName } = useContext(UserContext);
-  const [nameInput] = useInput();
-  const [emailInput] = useInput();
+  const nameInput = useInput();
+  const emailInput = useInput();
 
   const handleSubmit = (e) => {
     e.preventDefault();

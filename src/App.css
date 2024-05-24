@@ -60,7 +60,7 @@ nav {
 .link {
   display: flex;
   align-items: center;
-  color: #3e3a3a; /* Set text color to white */
+  color: #b9aae6; /* Set text color to white */
   text-decoration: none; /* Remove underline */
   margin-right: 20px; /* Add margin between links */
 }
@@ -72,19 +72,10 @@ nav {
 .userName {
   display: flex;
   flex-direction: row;
-  color: #3e3a3a; /* Set text color */
+  color: #ffffff; /* Set text color */
   margin-left: auto; /* Move the userName to the right */
 }
 
-.LogIn {
-  color: #3e3a3a; /* Set text color */
-  text-decoration: none; /* Remove underline */
-  margin-left: 20px; /* Add margin between links */
-}
-
-.LogIn:hover {
-  text-decoration: underline; /* Underline on hover */
-}
 .SearchBar input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;

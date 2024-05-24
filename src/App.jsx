@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import PageLayout from "./components/PageLayout";
 import Landningssida from "./pages/Landningssida";
 import { PostProvider } from "./context/BlogContext";
-import LoginComponent from "./components/LoginComponent";
+
 const App = () => {
   const { isLoggedIn } = useContext(UserContext);
 
@@ -17,7 +17,6 @@ const App = () => {
 
         <Routes>
           <Route path="/HomePage" element={<HomePage />} />
-          <Route path="/login" element={<LoginComponent />} />
           <Route path="/Landningssida" element={<Landningssida />} />
         </Routes>
 
