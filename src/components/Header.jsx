@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import { UserContext } from "../context/UserContext";
 
-
 export const Header = () => {
   const { userName, isLoggedIn, login, logout } = useContext(UserContext);
 
@@ -31,4 +30,4 @@ export const Header = () => {
     </div>
   );
 };
-
+export default Header;

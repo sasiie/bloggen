@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
-import LogIn from "./pages/LogIn";
 import PageLayout from "./components/PageLayout";
 import Landningssida from "./pages/Landningssida";
 import { PostProvider } from "./context/BlogContext";
