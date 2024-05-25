@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Navigate, Link } from "react-router-dom";
-import { AuthContext } from ".../context/AuthContext/";
-import { createUser } from "../firebase/authFunctions";
+import { AuthContext } from "../context/AuthContext";
+import {createUser} from "../firebase/authfunc";
 
 const RegisterComponent = () => {
   const { userLoggedIn } = useContext(AuthContext);
