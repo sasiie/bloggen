@@ -4,7 +4,7 @@ import Post from "./Post";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
-  const [categories] = useState(["Tech", "Lifestyle", "Business"]);
+  const [categories] = useState(["Romance", "Thriller", "Business"]);
   const [filterCategory, setFilterCategory] = useState("");
 
   const addPost = (post) => {

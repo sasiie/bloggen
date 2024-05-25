@@ -6,25 +6,30 @@ import HomePage from "./pages/HomePage";
 import PageLayout from "./components/PageLayout";
 import Landningssida from "./pages/Landningssida";
 import { PostProvider } from "./context/BlogContext";
+import RegisterComponent from "./components/RegisterComponent";
+import LoginComponent from "./components/LoginComponent";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 const App = () => {
-  const { isLoggedIn } = useContext(UserContext);
-
   return (
     <PostProvider>
-      <BrowserRouter>
-        <Header />
-        {isLoggedIn ? (
-          <>
-            <Routes>
+      <UserProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route element={<PrivateRoutes />}>
               <Route path="/HomePage" element={<HomePage />} />
               <Route path="/Landningssida" element={<Landningssida />} />
-            </Routes>
-          </>
-        ) : (
-          <PageLayout>Please log in</PageLayout>
-        )}
-      </BrowserRouter>
+            </Route>
+            <Route path="/login" element={<LoginComponent />} />
+            <Route path="/register" element={<RegisterComponent />} />
+            <Route
+              path="/"
+              element={<PageLayout title="Please log in" />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </UserProvider>
     </PostProvider>
   );
 };

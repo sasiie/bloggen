@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Navigate, Link } from "react-router-dom";
 import { AuthContext } from ".../context/AuthContext/";
 import { createUser } from "../firebase/authFunctions";
-import "./RegisterComponent.css"; // Import the CSS file for styling
 
 const RegisterComponent = () => {
   const { userLoggedIn } = useContext(AuthContext);

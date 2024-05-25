@@ -211,7 +211,6 @@ h1 {
 }
 
 /*Form */
-/* Basic styles for the login component */
 .main-container {
   margin-top: 40px;
   display: flex;
@@ -420,4 +419,42 @@ h1 {
 
 .register-link:hover {
   text-decoration: underline;
+}
+
+/* Blogposten */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.blog-post {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
