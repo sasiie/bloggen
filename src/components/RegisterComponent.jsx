@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Navigate, Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from ".../context/AuthContext/";
 import { createUser } from "../firebase/authFunctions";
-import './RegisterComponent.css'; // Import the CSS file for styling
+import "./RegisterComponent.css"; // Import the CSS file for styling
 
 const RegisterComponent = () => {
   const { userLoggedIn } = useContext(AuthContext);
@@ -22,7 +22,7 @@ const RegisterComponent = () => {
 
   return (
     <>
-      {userLoggedIn && <Navigate to={"/"} replace={true} />}
+      {userLoggedIn && <Navigate to={"./HomePage"} replace={true} />}
 
       <main className="register-main-container">
         <div className="register-form-container">
@@ -83,12 +83,12 @@ const RegisterComponent = () => {
             <button
               type="submit"
               disabled={isRegistering}
-              className={`register-submit-button ${isRegistering ? 'register-disabled' : ''}`}
+              className={`register-submit-button ${isRegistering ? "register-disabled" : ""}`}
             >
               {isRegistering ? "Signing Up..." : "Sign Up"}
             </button>
             <div className="register-text-center">
-              Already have an account? {" "}
+              Already have an account?{" "}
               <Link to={"/login"} className="register-link">
                 Continue
               </Link>
@@ -101,4 +101,3 @@ const RegisterComponent = () => {
 };
 
 export default RegisterComponent;
-

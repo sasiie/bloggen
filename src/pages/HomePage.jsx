@@ -12,7 +12,9 @@ const Posts = () => {
 
   useEffect(() => {
     const savedTodo = JSON.parse(localStorage.getItem("todolist"));
-    const savedCompletedTodo = JSON.parse(localStorage.getItem("completedTodos"));
+    const savedCompletedTodo = JSON.parse(
+      localStorage.getItem("completedTodos"),
+    );
 
     if (savedTodo) setTodos(savedTodo);
     if (savedCompletedTodo) setCompletedTodos(savedCompletedTodo);
@@ -28,9 +30,13 @@ const Posts = () => {
 
   const handleAddTodo = (event) => {
     event.preventDefault();
-    if (userInput.title.trim() === "" || userInput.description.trim() === "") return;
+    if (userInput.title.trim() === "" || userInput.description.trim() === "")
+      return;
 
-    const newTodoItem = { title: userInput.title, description: userInput.description };
+    const newTodoItem = {
+      title: userInput.title,
+      description: userInput.description,
+    };
     const updatedTodoArr = [...allTodos, newTodoItem];
     setTodos(updatedTodoArr);
     localStorage.setItem("todolist", JSON.stringify(updatedTodoArr));
@@ -100,10 +106,16 @@ const Posts = () => {
                     <p>{item.description}</p>
                   </div>
                   <div className="Buttons">
-                    <button className="Deleteit" onClick={() => handleDeleteTodo(index)}>
+                    <button
+                      className="Deleteit"
+                      onClick={() => handleDeleteTodo(index)}
+                    >
                       Ta bort
                     </button>
-                    <button className="complete" onClick={() => handleComplete(index)}>
+                    <button
+                      className="complete"
+                      onClick={() => handleComplete(index)}
+                    >
                       Färdig
                     </button>
                   </div>
@@ -121,7 +133,10 @@ const Posts = () => {
                     <p>Completed on: {item.completedOn}</p>
                   </div>
                   <div className="Buttons">
-                    <button className="Deleteit" onClick={() => handleDeleteCompletedTodo(index)}>
+                    <button
+                      className="Deleteit"
+                      onClick={() => handleDeleteCompletedTodo(index)}
+                    >
                       Ta bort
                     </button>
                   </div>
@@ -136,7 +151,3 @@ const Posts = () => {
 };
 
 export default Posts;
-
-
-
-

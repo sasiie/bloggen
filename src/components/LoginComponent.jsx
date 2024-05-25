@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Navigate, Link } from "react-router-dom";
-/*import { AuthContext } from "../context/AuthContext";
-import { signInUser } from "../firebase/authFunctions"; */
+import { AuthContext } from ".../context/AuthContext";
+import { signInUser } from "../firebase/authfunc";
 
 const LoginComponent = () => {
   const { userLoggedIn } = useContext(AuthContext);
@@ -20,7 +20,7 @@ const LoginComponent = () => {
 
   return (
     <div>
-      {userLoggedIn && <Navigate to={"/"} replace={true} />}
+      {userLoggedIn && <Navigate to={"./HomePage"} replace={true} />}
 
       <main className="main-container">
         <div className="form-container">
@@ -65,12 +65,12 @@ const LoginComponent = () => {
             <button
               type="submit"
               disabled={isSigningIn}
-              className={`submit-button ${isSigningIn ? 'disabled' : ''}`}
+              className={`submit-button ${isSigningIn ? "disabled" : ""}`}
             >
               {isSigningIn ? "Signing In..." : "Sign In"}
             </button>
           </form>
-          <p className="text-center text-sm">
+          <p className="register-box">
             Don't have an account?{" "}
             <Link to={"/register"} className="register-link">
               Sign up
