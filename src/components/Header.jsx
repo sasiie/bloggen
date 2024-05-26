@@ -26,7 +26,7 @@ export const Header = () => {
             <button onClick={signOutUser}> Log out</button>
           </>
         ) : (
-          <button to="/login">Log in</button>
+          <Link to="/login">Log in</Link>
         )}
       </nav>
     </div>
