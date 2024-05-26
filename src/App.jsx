@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserContext, UserProvider } from "./context/UserContext";
+import { AuthProvider } from "./context/AuthContext";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import PageLayout from "./components/PageLayout";
@@ -12,6 +13,7 @@ import PrivateRoutes from "./components/PrivateRoutes";
 
 const App = () => {
   return (
+    <AuthProvider>
     <PostProvider>
       <UserProvider>
         <BrowserRouter>
@@ -31,6 +33,7 @@ const App = () => {
         </BrowserRouter>
       </UserProvider>
     </PostProvider>
+    </AuthProvider>
   );
 };
 

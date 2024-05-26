@@ -9,22 +9,22 @@ export const AuthProvider = (props) => {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
+ 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, initializeUser);
-    return unsubscribe;
-  }, []);
+    const initializeUser = (user) => {
+      if (user) {
+        setCurrentUser(user);
+        setUserLoggedIn(true);
+      } else {
+        setCurrentUser(null);
+        setUserLoggedIn(false);
+      }
+      setLoading(false);
+    };
 
-  const initializeUser = (user) => {
-    setLoading(true);
-    if (user) {
-      setCurrentUser(user);
-      setUserLoggedIn(true);
-    } else {
-      setCurrentUser(null);
-      setUserLoggedIn(false);
-    }
-    setLoading(false);
-  };
+    const unsubscribe = onAuthStateChanged(auth, initializeUser);
+    return () => unsubscribe();
+  }, []);
 
   const values = { currentUser, userLoggedIn };
 
