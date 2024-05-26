@@ -27,7 +27,7 @@ const RegisterComponent = () => {
         <div className="register-form-container">
           <div className="register-form-container-inner">
             <div className="register-title-box">
-              <h3 className="register-title">Create a new account</h3>
+              <h3 className="register-title">Skapa nytt konto här</h3>
             </div>
           </div>
           <form onSubmit={onSubmit} className="register-form">

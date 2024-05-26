@@ -1,16 +1,18 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
-import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
+import { signOutUser } from "../firebase/authfunc";
 
 export const Header = () => {
-  const { userName, isLoggedIn, login, logout } = useContext(UserContext);
+  const { currentUser, userLoggedIn } = useContext(AuthContext);
+
 
   return (
     <div className="container">
       <h1 className="Title-header"> Saras Blogg</h1>
       <nav className="links-container">
-        {isLoggedIn ? (
+        {userLoggedIn ? (
           <>
             <Link to="/HomePage" className="link">
               Home
@@ -20,8 +22,8 @@ export const Header = () => {
             </Link>
             <SearchBar />
 
-            <p className="userName">{userName}</p>
-            <button onClick={logout}> Log out</button>
+            <p className="userName">{currentUser.email}</p>
+            <button onClick={signOutUser}> Log out</button>
           </>
         ) : (
           <button onClick={login}>Log in</button>

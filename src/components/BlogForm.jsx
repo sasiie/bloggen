@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const BlogForm = ({ categories, onSubmit }) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");

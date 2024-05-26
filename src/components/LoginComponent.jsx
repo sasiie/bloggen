@@ -14,13 +14,18 @@ const LoginComponent = () => {
     e.preventDefault();
     if (!isSigningIn) {
       setIsSigningIn(true);
-      await signInUser(email, password);
+      try {
+        await signInUser(email, password);
+      } catch (error) {
+        setErrorMessage(error.message);
+        setIsSigningIn(false);
+      }
     }
   };
 
   return (
     <div>
-      {userLoggedIn && <Navigate to={"./HomePage"} replace={true} />}
+      {userLoggedIn && <Navigate to={"/HomePage"} replace={true} />}
 
       <main className="main-container">
         <div className="form-container">
@@ -37,9 +42,7 @@ const LoginComponent = () => {
                 autoComplete="email"
                 required
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
                 className="input"
               />
             </div>
@@ -51,9 +54,7 @@ const LoginComponent = () => {
                 autoComplete="current-password"
                 required
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                onChange={(e) => setPassword(e.target.value)}
                 className="input"
               />
             </div>
@@ -72,7 +73,7 @@ const LoginComponent = () => {
           </form>
           <p className="register-box">
             Don't have an account?{" "}
-            <Link to={"/register"} className="register-link">
+            <Link to="/register" className="register-link">
               Sign up
             </Link>
           </p>
@@ -83,3 +84,4 @@ const LoginComponent = () => {
 };
 
 export default LoginComponent;
+

@@ -26,7 +26,7 @@ export const UserProvider = (props) => {
 
   return (
     <UserContext.Provider
-      value={{ userName, setUserName, isLoggedIn, login, logout }}
+      value={useInApp}
     >
       {props.children}
     </UserContext.Provider>

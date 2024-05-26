@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../App.css";
-import { UserContext } from "../context/UserContext";
 import PageLayout from "../components/PageLayout";
 
-const HomePage = () =>{
+const FirstSite = () =>{
 const { userName } = useContext(UserContext);
   return (
-    <PageLayout title="Home" headline={"Hello there ${userName}"}>
+    <PageLayout title="Welcome" headline="Hello, welcome to Saras Blog where you can...">
 <p>
-  Welcome back!
+  This websites gives you the opportunity to express your ......
 </p>
     </PageLayout>
   );
 };
-export default HomePage;
+export default FirstSite;
