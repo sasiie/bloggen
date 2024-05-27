@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import PageLayout from "../components/PageLayout";
 import BlogForm from "../components/BlogForm";  
+import { AuthContext } from "../context/AuthContext";
 
 const initialPosts = [
   {
@@ -9,7 +10,27 @@ const initialPosts = [
     title: "First Post",
     author: "Jane Doe",
     text: "This is the first blog post by Jane Doe.",
-    category: "General",
+    category: "Romance",
+  },
+  {
+    id: 3,
+    title: "First Post",
+    author: "Jane Doe",
+    text: "This is the first blog post by Jane Doe.",
+    category: "Lifestyle",
+  },
+  {
+    id: 4,
+    title: "First Post",
+    author: "Jane Doe",
+    text: "This is the first blog post by Jane Doe.",
+    category: "Romance",
+  },  {
+    id: 5,
+    title: "First Post",
+    author: "Jane Doe",
+    text: "This is the first blog post by Jane Doe.",
+    category: "Lifestyle",
   },
   {
     id: 2,
@@ -20,9 +41,10 @@ const initialPosts = [
   },
 ];
 
-const categories = ["General", "Tech", "Lifestyle", "Business"];
+const categories = ["General", "Romance", "Lifestyle", "Business"];
 
-const Landningssida = () => {
+const BlogSida = () => {
+  const { currentUser } = useContext(AuthContext);
 
   const { userName } = useContext(UserContext);
   const [posts, setPosts] = useState(initialPosts);
@@ -37,7 +59,7 @@ const Landningssida = () => {
     : posts;
 
   return (
-    <PageLayout title="Home" headline={`Välkommen in ${userName}!`}>
+    <PageLayout title="Home" headline={`Välkommen in ${currentUser.email}!`}>
       <BlogForm categories={categories} onSubmit={addPost} /> 
       <div>
         <h2>Blog</h2>
@@ -72,4 +94,4 @@ const Landningssida = () => {
   );
 };
 
-export default Landningssida;
+export default BlogSida;
