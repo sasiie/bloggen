@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import PageLayout from "../components/PageLayout";
-import BlogForm from "../components/BlogForm";  // Importera BlogForm
+import BlogForm from "../components/BlogForm";  
 
 const initialPosts = [
   {
