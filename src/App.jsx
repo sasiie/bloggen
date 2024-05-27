@@ -5,7 +5,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import PageLayout from "./components/PageLayout";
-import Landningssida from "./pages/Landningssida";
+import Landningssida from "./pages/BlogPage";
 import { PostProvider } from "./context/BlogContext";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";

@@ -23,6 +23,7 @@ const initialPosts = [
 const categories = ["General", "Tech", "Lifestyle", "Business"];
 
 const Landningssida = () => {
+
   const { userName } = useContext(UserContext);
   const [posts, setPosts] = useState(initialPosts);
   const [filterCategory, setFilterCategory] = useState("");
@@ -37,7 +38,7 @@ const Landningssida = () => {
 
   return (
     <PageLayout title="Home" headline={`Välkommen in ${userName}!`}>
-      <BlogForm categories={categories} onSubmit={addPost} />  {/* Använd BlogForm */}
+      <BlogForm categories={categories} onSubmit={addPost} /> 
       <div>
         <h2>Blog</h2>
         <div>

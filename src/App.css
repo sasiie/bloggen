@@ -137,7 +137,7 @@ h1 {
 }
 
 .Blogg-input-item input.Text {
-  width: 600px;
+  width: 500px;
   height: 200px;
   font-size: 18px;
   padding: 10px;
@@ -346,4 +346,133 @@ h1 {
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+/*login formulär */
+.main-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form-container {
+  width: 400px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.form-container-inner {
+  text-align: center;
+}
+
+.title-box {
+  margin-top: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #555;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  border-color: #4a90e2;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #357ab7;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.register-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #4a90e2;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Blog Info Section */
+.blog-info {
+  margin: 40px auto;
+  max-width: 800px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.blog-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.blog-info p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.blog-info strong {
+  font-weight: 600;
 }
