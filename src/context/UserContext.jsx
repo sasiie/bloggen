@@ -1,16 +1,20 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 export const UserContext = createContext();
 
-export const UserProvider = (props) => {
-  const [userName, setUserName] = useState("");
-  const lsIsLoggedIn = localStorage.getItem("isLoggedIn");
+export const useUser = () => useContext(UserContext);
+
+export const UserProvider = ({ children }) => {
+  const lsIsLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const lsUserName = localStorage.getItem("userName") || "";
+
+  const [userName, setUserName] = useState(lsUserName);
   const [isLoggedIn, setIsLoggedIn] = useState(lsIsLoggedIn);
 
   const login = (email) => {
     setIsLoggedIn(true);
     setUserName(email);
-    localStorage.setItem("isLoggedIn", true);
+    localStorage.setItem("isLoggedIn", "true");
     localStorage.setItem("userName", email);
   };
 
@@ -21,7 +25,7 @@ export const UserProvider = (props) => {
     localStorage.removeItem("userName");
   };
 
-  const useInApp = {
+  const value = {
     userName,
     setUserName,
     isLoggedIn,
@@ -29,9 +33,15 @@ export const UserProvider = (props) => {
     logout,
   };
 
+  useEffect(() => {
+    setIsLoggedIn(lsIsLoggedIn);
+    setUserName(lsUserName);
+  }, []);
+
   return (
-    <UserContext.Provider value={useInApp}>
-      {props.children}
+    <UserContext.Provider value={value}>
+      {children}
     </UserContext.Provider>
   );
 };
+

@@ -71,7 +71,7 @@ const LoginComponent = () => {
               {isSigningIn ? "Signing In..." : "Sign In"}
             </button>
           </form>
-          <p className="register-box">
+          <p className="register-box text-center">
             Don't have an account?{" "}
             <Link to="/register" className="register-link">
               Sign up
@@ -79,7 +79,7 @@ const LoginComponent = () => {
           </p>
         </div>
       </main>
-      
+
       <section className="blog-info">
         <h2>What is a Blog?</h2>
         <p>
@@ -125,4 +125,3 @@ const LoginComponent = () => {
 };
 
 export default LoginComponent;
-

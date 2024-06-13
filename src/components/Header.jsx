@@ -7,7 +7,6 @@ import { signOutUser } from "../firebase/authfunc";
 export const Header = () => {
   const { currentUser, userLoggedIn } = useContext(AuthContext);
 
-
   return (
     <div className="container">
       <h1 className="Title-header"> Saras Blogg</h1>
@@ -17,7 +16,7 @@ export const Header = () => {
             <Link to="/HomePage" className="link">
               Home
             </Link>
-            <Link to="/Landningssida" className="link">
+            <Link to="/BlogPage" className="link">
               Blogg sidan
             </Link>
             <SearchBar />

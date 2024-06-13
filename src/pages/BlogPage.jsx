@@ -1,57 +1,87 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import PageLayout from "../components/PageLayout";
-import BlogForm from "../components/BlogForm";  
+import BlogForm from "../components/BlogForm";
+import CommentForm from "../components/CommentForm";
 import { AuthContext } from "../context/AuthContext";
 
 const initialPosts = [
   {
     id: 1,
     title: "First Post",
-    author: "Jane Doe",
-    text: "This is the first blog post by Jane Doe.",
-    category: "Romance",
+    author: "Monica",
+    text: "did you see what they wore on the red carpet?",
+    category: "Lifestyle",
+    comments: [],
   },
   {
     id: 3,
     title: "First Post",
-    author: "Jane Doe",
-    text: "This is the first blog post by Jane Doe.",
-    category: "Lifestyle",
+    author: "Rose",
+    text: "Have you read the newest book from...",
+    category: "Romance",
+    comments: [],
   },
   {
     id: 4,
     title: "First Post",
-    author: "Jane Doe",
-    text: "This is the first blog post by Jane Doe.",
+    author: "Jane",
+    text: "This movie is the best movie ever",
     category: "Romance",
-  },  {
+    comments: [],
+  },
+  {
     id: 5,
     title: "First Post",
-    author: "Jane Doe",
-    text: "This is the first blog post by Jane Doe.",
+    author: "Justin",
+    text: "This is the new workout regime!",
     category: "Lifestyle",
+    comments: [],
   },
   {
     id: 2,
     title: "Second Post",
-    author: "Jane Doe",
-    text: "This is the second blog post by Jane Doe.",
+    author: "Barbara",
+    text: "how do you update the iphone?",
     category: "General",
+    comments: [],
   },
 ];
 
 const categories = ["General", "Romance", "Lifestyle", "Business"];
 
-const BlogSida = () => {
+const BlogPage = () => {
   const { currentUser } = useContext(AuthContext);
 
-  const { userName } = useContext(UserContext);
   const [posts, setPosts] = useState(initialPosts);
   const [filterCategory, setFilterCategory] = useState("");
 
   const addPost = (newPost) => {
-    setPosts([...posts, { ...newPost, id: posts.length + 1 }]);
+    setPosts([
+      ...posts,
+      {
+        ...newPost,
+        id: posts.length + 1,
+        author: currentUser.email.split("@")[0],
+        comments: [],
+      },
+    ]);
+  };
+
+  const addComment = (postId, text) => {
+    const updatedPosts = posts.map((post) => {
+      if (post.id === postId) {
+        return {
+          ...post,
+          comments: [
+            ...post.comments,
+            { text, author: currentUser.email.split("@")[0] },
+          ],
+        };
+      }
+      return post;
+    });
+    setPosts(updatedPosts);
   };
 
   const filteredPosts = filterCategory
@@ -60,7 +90,7 @@ const BlogSida = () => {
 
   return (
     <PageLayout title="Home" headline={`Välkommen in ${currentUser.email}!`}>
-      <BlogForm categories={categories} onSubmit={addPost} /> 
+      <BlogForm categories={categories} onSubmit={addPost} />
       <div>
         <h2>Blog</h2>
         <div>
@@ -87,6 +117,15 @@ const BlogSida = () => {
             <p>
               <strong>Category:</strong> {post.category}
             </p>
+            <h4>Comments</h4>
+            {post.comments.map((comment, index) => (
+              <div key={index} className="comment">
+                <p>
+                  <strong>{comment.author}:</strong> {comment.text}
+                </p>
+              </div>
+            ))}
+            <CommentForm onSubmit={(text) => addComment(post.id, text)} />
           </div>
         ))}
       </div>
@@ -94,4 +133,4 @@ const BlogSida = () => {
   );
 };
 
-export default BlogSida;
+export default BlogPage;

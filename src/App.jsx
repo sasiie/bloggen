@@ -4,8 +4,7 @@ import { UserContext, UserProvider } from "./context/UserContext";
 import { AuthProvider } from "./context/AuthContext";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
-import PageLayout from "./components/PageLayout";
-import Landningssida from "./pages/BlogPage";
+import BlogPage from "./pages/BlogPage";
 import { PostProvider } from "./context/BlogContext";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
@@ -14,25 +13,21 @@ import PrivateRoutes from "./components/PrivateRoutes";
 const App = () => {
   return (
     <AuthProvider>
-    <PostProvider>
-      <UserProvider>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route element={<PrivateRoutes />}>
-              <Route path="/HomePage" element={<HomePage />} />
-              <Route path="/Landningssida" element={<Landningssida />} />
-            </Route>
-            <Route path="/login" element={<LoginComponent />} />
-            <Route path="/register" element={<RegisterComponent />} />
-            <Route
-              path="/"
-              element={<PageLayout title="Please log in" />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </UserProvider>
-    </PostProvider>
+      <PostProvider>
+        <UserProvider>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route element={<PrivateRoutes />}>
+                <Route path="/HomePage" element={<HomePage />} />
+                <Route path="/BlogPage" element={<BlogPage />} />
+              </Route>
+              <Route path="/Login" element={<LoginComponent />} />
+              <Route path="/register" element={<RegisterComponent />} />
+            </Routes>
+          </BrowserRouter>
+        </UserProvider>
+      </PostProvider>
     </AuthProvider>
   );
 };

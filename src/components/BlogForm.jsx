@@ -1,22 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-
-const BlogForm = ({ categories, onSubmit }) => {
+const Form = ({ categories, onSubmit, currentUser, onCancel }) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [category, setCategory] = useState(categories[0] || "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ title, text, category });
+    onSubmit({
+      title,
+      text,
+      category,
+    });
     setTitle("");
     setText("");
     setCategory(categories[0] || "");
   };
 
+  useEffect(() => {
+    if (currentUser) {
+      setTitle(currentUser.title);
+      setText(currentUser.text);
+      setCategory(currentUser.category);
+    }
+  }, [currentUser]);
+
   return (
     <form onSubmit={handleSubmit} className="form">
-      <div>
+      <div className="blog-container">
         <label className="label">Title</label>
         <input
           type="text"
@@ -27,7 +38,7 @@ const BlogForm = ({ categories, onSubmit }) => {
         />
       </div>
 
-      <div>
+      <div className="blog-container">
         <label className="label">Text</label>
         <textarea
           value={text}
@@ -37,7 +48,7 @@ const BlogForm = ({ categories, onSubmit }) => {
         />
       </div>
 
-      <div>
+      <div className="blog-container">
         <label className="label">Category</label>
         <select
           value={category}
@@ -53,9 +64,16 @@ const BlogForm = ({ categories, onSubmit }) => {
         </select>
       </div>
 
-      <button type="submit" className="submit-button">Submit</button>
+      <button type="submit" className="submit-button">
+        {currentUser ? "Update" : "Submit"}
+      </button>
+      {onCancel && (
+        <button type="button" className="cancel-button" onClick={onCancel}>
+          Cancel
+        </button>
+      )}
     </form>
   );
 };
 
-export default BlogForm;
+export default Form;
