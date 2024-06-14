@@ -9,7 +9,7 @@ const HomePage = () => {
   const { userName } = useContext(UserContext);
 
   return (
-    <PageLayout title="Home" headline={`Hello there, ${userName}`}>
+    <PageLayout title="Home" headline={`Hello there, ${userName.split("@")[0]}`}>
       <section className="blog-info">
         <h2>Welcome back!</h2>
         <h3>What is a Blog?</h3>

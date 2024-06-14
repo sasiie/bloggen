@@ -19,7 +19,7 @@ export const Header = () => {
               Blog Page
             </Link>
 
-            <p className="userName">{currentUser.email}</p>
+            <p className="userName">{currentUser.email.split("@")[0]}</p>
             <button onClick={signOutUser}> Log out</button>
           </>
         ) : (

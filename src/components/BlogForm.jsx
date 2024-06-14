@@ -68,11 +68,6 @@ const BlogForm = ({ categories, onSubmit, currentUser, onCancel }) => {
       <button type="submit" className="submit-button">
         {currentUser ? "Update" : "Submit"}
       </button>
-      {onCancel && (
-        <button type="button" className="cancel-button" onClick={onCancel}>
-          Cancel
-        </button>
-      )}
     </form>
   );
 };
