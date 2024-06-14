@@ -1,21 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Form = ({ categories, onSubmit, currentUser, onCancel }) => {
+const BlogForm = ({ categories, onSubmit, currentUser, onCancel }) => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [category, setCategory] = useState(categories[0] || "");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit({
-      title,
-      text,
-      category,
-    });
-    setTitle("");
-    setText("");
-    setCategory(categories[0] || "");
-  };
 
   useEffect(() => {
     if (currentUser) {
@@ -24,6 +12,19 @@ const Form = ({ categories, onSubmit, currentUser, onCancel }) => {
       setCategory(currentUser.category);
     }
   }, [currentUser]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({
+      ...currentUser,
+      title,
+      text,
+      category,
+    });
+    setTitle("");
+    setText("");
+    setCategory(categories[0] || "");
+  };
 
   return (
     <form onSubmit={handleSubmit} className="form">
@@ -76,4 +77,4 @@ const Form = ({ categories, onSubmit, currentUser, onCancel }) => {
   );
 };
 
-export default Form;
+export default BlogForm;

@@ -5,7 +5,6 @@ import { AuthProvider } from "./context/AuthContext";
 import Header from "./components/Header";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
-import { PostProvider } from "./context/BlogContext";
 import RegisterComponent from "./components/RegisterComponent";
 import LoginComponent from "./components/LoginComponent";
 import PrivateRoutes from "./components/PrivateRoutes";
@@ -13,7 +12,6 @@ import PrivateRoutes from "./components/PrivateRoutes";
 const App = () => {
   return (
     <AuthProvider>
-      <PostProvider>
         <UserProvider>
           <BrowserRouter>
             <Header />
@@ -27,7 +25,6 @@ const App = () => {
             </Routes>
           </BrowserRouter>
         </UserProvider>
-      </PostProvider>
     </AuthProvider>
   );
 };

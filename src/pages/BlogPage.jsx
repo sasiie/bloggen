@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
-import { UserContext } from "../context/UserContext";
 import PageLayout from "../components/PageLayout";
 import BlogForm from "../components/BlogForm";
 import CommentForm from "../components/CommentForm";
 import { AuthContext } from "../context/AuthContext";
+import Category from "../components/Category";
 
 const initialPosts = [
   {
     id: 1,
-    title: "First Post",
+    title: "Red Carpet",
     author: "Monica",
     text: "did you see what they wore on the red carpet?",
     category: "Lifestyle",
@@ -16,7 +16,7 @@ const initialPosts = [
   },
   {
     id: 3,
-    title: "First Post",
+    title: "So dreamyyy",
     author: "Rose",
     text: "Have you read the newest book from...",
     category: "Romance",
@@ -24,7 +24,7 @@ const initialPosts = [
   },
   {
     id: 4,
-    title: "First Post",
+    title: "Have you seen it?",
     author: "Jane",
     text: "This movie is the best movie ever",
     category: "Romance",
@@ -32,7 +32,7 @@ const initialPosts = [
   },
   {
     id: 5,
-    title: "First Post",
+    title: "This one killed me!",
     author: "Justin",
     text: "This is the new workout regime!",
     category: "Lifestyle",
@@ -40,7 +40,7 @@ const initialPosts = [
   },
   {
     id: 2,
-    title: "Second Post",
+    title: "Please help",
     author: "Barbara",
     text: "how do you update the iphone?",
     category: "General",
@@ -55,6 +55,7 @@ const BlogPage = () => {
 
   const [posts, setPosts] = useState(initialPosts);
   const [filterCategory, setFilterCategory] = useState("");
+  const [editingPost, setEditingPost] = useState(null);
 
   const addPost = (newPost) => {
     setPosts([
@@ -66,6 +67,15 @@ const BlogPage = () => {
         comments: [],
       },
     ]);
+  };
+
+  const updatePost = (updatedPost) => {
+    setPosts(posts.map((post) => (post.id === updatedPost.id ? updatedPost : post)));
+    setEditingPost(null);
+  };
+
+  const deletePost = (postId) => {
+    setPosts(posts.filter((post) => post.id !== postId));
   };
 
   const addComment = (postId, text) => {
@@ -89,26 +99,24 @@ const BlogPage = () => {
     : posts;
 
   return (
-    <PageLayout title="Home" headline={`Välkommen in ${currentUser.email}!`}>
-      <BlogForm categories={categories} onSubmit={addPost} />
-      <div>
-        <h2>Blog</h2>
-        <div>
-          <label>Filter by category:</label>
-          <select
-            onChange={(e) => setFilterCategory(e.target.value)}
-            value={filterCategory}
-          >
-            <option value="">All</option>
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-        </div>
+    <PageLayout
+      title="Home"
+      headline={`Welcome back ${currentUser.email.split("@")[0]}!`}
+    >
+      <BlogForm
+        categories={categories}
+        onSubmit={editingPost ? updatePost : addPost}
+        currentUser={editingPost}
+        onCancel={() => setEditingPost(null)}
+      />
+      <Category
+        categories={categories}
+        filterCategory={filterCategory}
+        setFilterCategory={setFilterCategory}
+      />
+      <div className="blog-posts">
         {filteredPosts.map((post) => (
-          <div key={post.id} className="blog-post">
+          <div key={post.id} className="blog-container">
             <h3>{post.title}</h3>
             <p>
               <strong>Author:</strong> {post.author}
@@ -117,6 +125,20 @@ const BlogPage = () => {
             <p>
               <strong>Category:</strong> {post.category}
             </p>
+            <div className="post-actions">
+              <button
+                className="edit-button"
+                onClick={() => setEditingPost(post)}
+              >
+                Edit
+              </button>
+              <button
+                className="delete-button"
+                onClick={() => deletePost(post.id)}
+              >
+                Delete
+              </button>
+            </div>
             <h4>Comments</h4>
             {post.comments.map((comment, index) => (
               <div key={index} className="comment">

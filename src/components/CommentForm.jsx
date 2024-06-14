@@ -5,10 +5,8 @@ const CommentForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim()) {
-      onSubmit(text);
-      setText("");
-    }
+    onSubmit(text);
+    setText("");
   };
 
   return (
@@ -16,10 +14,13 @@ const CommentForm = ({ onSubmit }) => {
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
+        className="comment-input"
         placeholder="Add a comment..."
         required
       />
-      <button type="submit">Submit</button>
+      <button type="submit" className="comment-submit-button">
+        Comment
+      </button>
     </form>
   );
 };

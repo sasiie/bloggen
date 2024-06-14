@@ -12,6 +12,10 @@ h1 {
   margin: 0 auto;
   padding: 0 20px;
 }
+.headline{
+  display: flex;
+  justify-content: center;
+}
 
 /* Header */
 .header {
@@ -80,12 +84,12 @@ h1 {
   margin-top: 16px;
 }
 
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 16px;
-}
+} */
 
 .label,
 .register-label {
@@ -165,13 +169,8 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: center;
-  width: 800px;
-}
-.blog-container {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
+  justify-content: center;
+  width: 100%;
 }
 
 .label {
@@ -182,6 +181,7 @@ h1 {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 80px;
 }
 
 .submit-button {
@@ -198,13 +198,52 @@ h1 {
   cursor: not-allowed;
 }
 
-.blog-post {
-  margin: 1rem 0;
+.blog-posts{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.blog-container {
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 500px;
+  height: auto;
+  margin-bottom: 15px;
 }
 
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
 /*logincomponent formulär */
 .form {
   display: flex;
@@ -301,4 +340,10 @@ h1 {
 
 .blog-info strong {
   font-weight: 600;
+}
+
+/*Comments */
+.comment-form {
+  display: flex;
+  justify-content:first baseline;
 }

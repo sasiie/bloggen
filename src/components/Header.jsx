@@ -9,7 +9,7 @@ export const Header = () => {
 
   return (
     <div className="container">
-      <h1 className="Title-header"> Saras Blogg</h1>
+      <h1 className="Title-header"> Saras Blog</h1>
       <nav className="links-container">
         {userLoggedIn ? (
           <>
@@ -17,7 +17,7 @@ export const Header = () => {
               Home
             </Link>
             <Link to="/BlogPage" className="link">
-              Blogg sidan
+              Blog Page
             </Link>
             <SearchBar />
 
@@ -25,7 +25,7 @@ export const Header = () => {
             <button onClick={signOutUser}> Log out</button>
           </>
         ) : (
-          <Link to="/login">Log in</Link>
+          <Link to="/login">Login</Link>
         )}
       </nav>
     </div>
