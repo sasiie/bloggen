@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "../components/SearchBar";
 import { AuthContext } from "../context/AuthContext";
 import { signOutUser } from "../firebase/authfunc";
 
@@ -19,7 +18,6 @@ export const Header = () => {
             <Link to="/BlogPage" className="link">
               Blog Page
             </Link>
-            <SearchBar />
 
             <p className="userName">{currentUser.email}</p>
             <button onClick={signOutUser}> Log out</button>
